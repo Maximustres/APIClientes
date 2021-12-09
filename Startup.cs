@@ -38,6 +38,7 @@ namespace APIClientes
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IUserRepositorio, UserRepositorio>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
