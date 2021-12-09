@@ -54,10 +54,6 @@ namespace APIClientes.Controllers
         {
             var respuesta = await _userRepositorio.Login(user.UserName, user.Password);
 
-            _response.IsSucces = true;
-            _response.DisplayMessage = "Usuario Conectado";
-
-
             if (respuesta == "nouser")
             {
                 _response.IsSucces = false;
@@ -68,6 +64,10 @@ namespace APIClientes.Controllers
                 _response.IsSucces = false;
                 _response.DisplayMessage = "Password Incorrecta";
             }
+
+            _response.IsSucces = true;
+            _response.Result = respuesta;
+            _response.DisplayMessage = "Usuario Conectado";
 
             return Ok(_response);
         }
